@@ -1,0 +1,14 @@
+BY SUBMITTING THIS FILE TO CARMEN, I CERTIFY THAT I STRICTLY ADHERED TO THE
+TENURES OF THE OHIO STATE UNIVERSITY’S ACADEMIC INTEGRITY POLICY.
+THIS IS THE README FILE FOR LAB 6.
+Brett Emory
+
+1) This lab took me around 4-5 hours to complete. 
+
+2) I think I found an interesting bug in the lab2 description. It meantions that some example input for bit decode should be key: 0110 and input data: 24 88 12 23 00 83 24 23 04 84 01 8A. It is supposed to print out 'two fat dogs'. When I use this example input in my program, the hex value 0x01 does not properly get decoded into a 'g', instead it gets decoded into an unkown letter in the ascii table. I think this is interesting because when I used gdb and tui reg general, I was able to determine that the value that should be decoded is 02. Checking the registers allowed me to figure this out because the shift to the right on 01 makes the binary 11100110 when it should be 01100111.
+
+3) I did not have to use gdb on my C code, the code functioned correctly. 
+
+4) I used gdb and tui reg general in order to find the causation of a segfault failure in my program. It ended up being a syntax error in the create_key.s file where I was not using the '$' before passing an immediate value to the printf function. I also regularly used tui reg general in order to make sure there was no junk in the registers that needed to be shifted because this could cause unwanted behavior in the program. I set a break point at create_key in order to go into the function that was causin gthe segfault. When lookin gat the register for the shift functions, I was looking at %rax, %al, %r11, %r11b, %rdi, %dil. 
+
+5) I found it very helpful to look back at my functioning C code for create key, and the shift functions. I followed the flow of the C program in order to create the x86-64 code that I have submitted. I see myself utilizing this method of coding on the upcoming labs as well. 
